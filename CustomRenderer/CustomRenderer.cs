@@ -12,6 +12,8 @@ using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(TextBox), typeof(TextBoxRenderer))]
 [assembly: ExportRenderer(typeof(XButton), typeof(ButtonRenderer))]
+[assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
+[assembly: ExportRenderer(typeof(CustomSelect), typeof(CustomSelectRenderer))]
 namespace ExpressBase.Mobile.iOS.CustomRenderer
 {
     class TextBoxRenderer : EntryRenderer
@@ -25,6 +27,22 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
     public class XButtonRenderer : ButtonRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Button> e)
+        {
+            base.OnElementChanged(e);
+        }
+    }
+
+    public class CustomDatePickerRenderer : DatePickerRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.DatePicker> e)
+        {
+            base.OnElementChanged(e);
+        }
+    }
+
+    public class CustomSelectRenderer : PickerRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Picker> e)
         {
             base.OnElementChanged(e);
         }
