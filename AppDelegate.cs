@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-
+using ExpressBase.Mobile.Constants;
+using ExpressBase.Mobile.Services;
 using Foundation;
 using UIKit;
 
@@ -23,7 +25,28 @@ namespace ExpressBase.Mobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            App _app = null;
+
+            string sid = Store.GetValue(AppConst.SID);
+
+            if (string.IsNullOrEmpty(sid))
+            {
+                _app = new App();
+            }
+            else
+            {
+                string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), string.Format("{0}.db3", sid));
+
+                if (!File.Exists(dbPath))
+                {
+                    Mono.Data.Sqlite.SqliteConnection.CreateFile(dbPath);
+                }
+
+                _app = new App(dbPath);
+            }
+
+            LoadApplication(_app);
 
             return base.FinishedLaunching(app, options);
         }
