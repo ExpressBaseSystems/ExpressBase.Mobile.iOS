@@ -11,12 +11,21 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(TextBox), typeof(TextBoxRenderer))]
+[assembly: ExportRenderer(typeof(NumericTextBox), typeof(NumericBoxRenderer))]
 [assembly: ExportRenderer(typeof(XButton), typeof(ButtonRenderer))]
 [assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 [assembly: ExportRenderer(typeof(CustomSelect), typeof(CustomSelectRenderer))]
 namespace ExpressBase.Mobile.iOS.CustomRenderer
 {
     class TextBoxRenderer : EntryRenderer
+    {
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+        }
+    }
+
+    class NumericBoxRenderer : EntryRenderer
     {
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

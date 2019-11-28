@@ -52,7 +52,7 @@ namespace ExpressBase.Mobile.iOS.Data
                         cmd.CommandText = query;
 
                         if (parameters != null && parameters.Length > 0)
-                            cmd.Parameters.AddRange(parameters);
+                            cmd.Parameters.AddRange(this.DbParamToSqlParam(parameters));
 
                         using (var reader = cmd.ExecuteReader())
                         {
@@ -85,7 +85,7 @@ namespace ExpressBase.Mobile.iOS.Data
                         cmd.CommandText = query;
 
                         if (parameters != null && parameters.Length > 0)
-                            cmd.Parameters.AddRange(parameters);
+                            cmd.Parameters.AddRange(this.DbParamToSqlParam(parameters));
 
                         return cmd.ExecuteNonQuery();
                     }
@@ -121,6 +121,22 @@ namespace ExpressBase.Mobile.iOS.Data
                 dr.AddRange(oArray);
                 dt.Rows.Add(dr);
             }
+        }
+
+        private SqliteParameter[] DbParamToSqlParam(params DbParameter[] parameters)
+        {
+            List<SqliteParameter> SqlP = new List<SqliteParameter>();
+
+            foreach (DbParameter param in parameters)
+            {
+                SqlP.Add(new SqliteParameter
+                {
+                    ParameterName = param.ParameterName,
+                    DbType = (DbType)param.DbType,
+                    Value = param.Value
+                });
+            }
+            return SqlP.ToArray();
         }
     }
 }
