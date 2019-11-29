@@ -98,6 +98,31 @@ namespace ExpressBase.Mobile.iOS.Data
             return 0;
         }
 
+        public object DoScalar(string query, params DbParameter[] parameters)
+        {
+            try
+            {
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                {
+                    con.Open();
+                    using (SqliteCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = query;
+
+                        if (parameters != null && parameters.Length > 0)
+                            cmd.Parameters.AddRange(this.DbParamToSqlParam(parameters));
+
+                        return cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+        }
+
         protected void PrepareDataTable(SqliteDataReader reader, EbDataTable dt)
         {
             int _fieldCount = reader.FieldCount;
