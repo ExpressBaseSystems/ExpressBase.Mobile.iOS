@@ -14,6 +14,10 @@ namespace ExpressBase.Mobile.iOS.Helpers
 {
     public class NativeHelper : INativeHelper
     {
+        public string AppVersion => NSBundle.MainBundle.InfoDictionary[new NSString("CFBundleVersion")].ToString();
+
+        public string DeviceId => UIDevice.CurrentDevice.IdentifierForVendor.AsString();
+
         public void CloseApp()
         {
             Process.GetCurrentProcess().CloseMainWindow();
