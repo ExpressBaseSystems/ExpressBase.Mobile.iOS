@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
 using ExpressBase.Mobile.Data;
 using ExpressBase.Mobile.iOS.Data;
 using Foundation;
@@ -39,7 +37,7 @@ namespace ExpressBase.Mobile.iOS.Data
             return 0;
         }
 
-        public void DoQuery(string query, params DbParameter[] parameters)
+        public EbDataTable DoQuery(string query, params DbParameter[] parameters)
         {
             EbDataTable dt = new EbDataTable();
             try
@@ -66,6 +64,7 @@ namespace ExpressBase.Mobile.iOS.Data
             {
                 Console.WriteLine(e.Message);
             }
+            return dt;
         }
 
         public void DoQueries(string query, params DbParameter[] parameters)
@@ -127,14 +126,13 @@ namespace ExpressBase.Mobile.iOS.Data
         {
             int _fieldCount = reader.FieldCount;
 
-            DataTable _t = reader.GetSchemaTable();
-
-            for (int i = 0; i < _t.Columns.Count; i++)
+            for (int i = 0; i < _fieldCount; i++)
             {
                 dt.Columns.Add(new EbDataColumn
                 {
-                    ColumnName = _t.Columns[i].ColumnName,
-                    ColumnIndex = i
+                    ColumnName = reader.GetName(i),
+                    ColumnIndex = i,
+                    Type = DbTypeConverter.ConvertToDbType(reader.GetFieldType(i))
                 });
             }
 
