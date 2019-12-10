@@ -97,6 +97,56 @@ namespace ExpressBase.Mobile.iOS.Data
             return 0;
         }
 
+        public void DoNonQueryBatch(EbDataTable Table)
+        {
+            try
+            {
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                {
+                    con.Open();
+                    string query = "INSERT INTO {0} ({1}) VALUES ({2});";
+                    List<string> _cols = new List<string>();
+                    List<string> _vals = new List<string>();
+
+                    using (SqliteCommand cmd = con.CreateCommand())
+                    {
+                        using (SqliteTransaction transaction = con.BeginTransaction())
+                        {
+                            for (int k = 0; k < Table.Rows.Count; k++)
+                            {
+                                cmd.Parameters.Clear();
+
+                                if (k >= 1000)
+                                    break;
+
+                                for (int i = 0; i < Table.Rows[k].Count; i++)
+                                {
+                                    EbDataColumn column = Table.Columns.Find(item => item.ColumnIndex == i);
+                                    if (k == 0)
+                                    {
+                                        _cols.Add(column.ColumnName);
+                                        _vals.Add("@" + column.ColumnName);
+                                    }
+
+                                    cmd.Parameters.Add(new SqliteParameter { ParameterName = "@" + column.ColumnName, Value = Table.Rows[k][i] });
+                                }
+
+                                cmd.CommandText = string.Format(query, Table.TableName, string.Join(",", _cols.ToArray()), string.Join(",", _vals.ToArray()));
+                                int rowAffected = cmd.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
         public object DoScalar(string query, params DbParameter[] parameters)
         {
             try
