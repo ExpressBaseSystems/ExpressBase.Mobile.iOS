@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="CustomRenderer\CustomRenderer.cs" />
     <Compile Include="Data\DataBaseIOS.cs" />
+    <Compile Include="Helpers\LoadingIndicatorIOS.cs" />
     <Compile Include="Helpers\NativeHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -160,5 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeaderTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InvertedTriangle.png" />
   </ItemGroup>
 </Project>
