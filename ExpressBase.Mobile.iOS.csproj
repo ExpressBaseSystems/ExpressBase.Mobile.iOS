@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="CustomRenderer\CustomRenderer.cs" />
     <Compile Include="Data\DataBaseIOS.cs" />
-    <Compile Include="Helpers\LoadingIndicatorIOS.cs" />
     <Compile Include="Helpers\NativeHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
