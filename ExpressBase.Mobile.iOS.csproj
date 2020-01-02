@@ -70,12 +70,11 @@
       <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\UIFontIcons.ttf" />
-    <BundleResource Include="Resources\Montserrat-Bold.ttf" />
-    <BundleResource Include="Resources\Montserrat-Medium.ttf" />
-    <BundleResource Include="Resources\Montserrat-Regular.ttf" />
-    <BundleResource Include="Resources\Montserrat-SemiBold.ttf" />
     <BundleResource Include="Resources\fontawesome-webfont.ttf" />
+    <BundleResource Include="Resources\Roboto-Regular.ttf" />
+    <BundleResource Include="Resources\Roboto-Medium.ttf" />
+    <BundleResource Include="Resources\Roboto-Light.ttf" />
+    <BundleResource Include="Resources\Roboto-Bold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
