@@ -74,8 +74,22 @@ namespace ExpressBase.Mobile.iOS.Helpers
 
         public byte[] GetPhoto(string url)
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), url);
-            return File.ReadAllBytes(path);
+            try
+            {
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), url);
+                return File.ReadAllBytes(path);
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message);
+            }
+            return null;
+        }
+
+        public string[] GetFiles(string Url, string Pattern)
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Url);
+            return Directory.GetFiles(path, Pattern);
         }
     }
 
