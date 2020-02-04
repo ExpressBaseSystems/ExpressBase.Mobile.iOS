@@ -91,6 +91,11 @@ namespace ExpressBase.Mobile.iOS.Helpers
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Url);
             return Directory.GetFiles(path, Pattern);
         }
+
+        public string GetBaseURl()
+        {
+            return NSBundle.MainBundle.BundlePath;
+        }
     }
 
     public class ToastMessage : IToast
