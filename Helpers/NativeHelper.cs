@@ -96,6 +96,28 @@ namespace ExpressBase.Mobile.iOS.Helpers
         {
             return NSBundle.MainBundle.BundlePath;
         }
+
+        public void WriteLogs(string message, LogTypes logType)
+        {
+            try
+            {
+                string sid = Settings.SolutionId.ToUpper();
+
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ExpressBase/{sid}/logs.txt");
+
+                // Create a string array with the additional lines of text
+                string[] lines = {
+                    $"CREATED ON { DateTime.UtcNow }",
+                    $"{logType.ToString()} : {message}"
+                };
+
+                File.AppendAllLines(path, lines);
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message);
+            }
+        }
     }
 
     public class ToastMessage : IToast

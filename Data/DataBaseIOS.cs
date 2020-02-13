@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using ExpressBase.Mobile.Data;
 using ExpressBase.Mobile.iOS.Data;
+using ExpressBase.Mobile.Models;
 using Foundation;
 using Mono.Data.Sqlite;
 using UIKit;
@@ -67,9 +68,41 @@ namespace ExpressBase.Mobile.iOS.Data
             return dt;
         }
 
-        public void DoQueries(string query, params DbParameter[] parameters)
+        public EbDataSet DoQueries(string query, params DbParameter[] parameters)
         {
+            EbDataSet ds = new EbDataSet();
+            try
+            {
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                {
+                    con.Open();
+                    using (SqliteCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = query;
 
+                        if (parameters != null && parameters.Length > 0)
+                            cmd.Parameters.AddRange(this.DbParamToSqlParam(parameters));
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            do
+                            {
+                                EbDataTable dt = new EbDataTable();
+                                PrepareDataTable(reader, dt);
+                                ds.Tables.Add(dt);
+                                ds.RowNumbers += dt.Rows.Count.ToString() + ",";
+                            }
+                            while (reader.NextResult());
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Write("DataBaseAndroid.DoQueries---" + ex.Message);
+            }
+            return ds;
         }
 
         public int DoNonQuery(string query, params DbParameter[] parameters)
