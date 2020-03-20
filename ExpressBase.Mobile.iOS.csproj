@@ -151,18 +151,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\form.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sync.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\list.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\eblogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\SplashScreen.png" />
   </ItemGroup>
   <ItemGroup>
@@ -173,5 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\WebView\DataTable.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\doodlebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\eblogo.png" />
   </ItemGroup>
 </Project>
