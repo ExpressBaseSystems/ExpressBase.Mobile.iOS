@@ -166,6 +166,6 @@
     <BundleResource Include="Resources\doodlebg.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\eblogo.png" />
+    <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
 </Project>
