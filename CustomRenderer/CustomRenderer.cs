@@ -12,8 +12,6 @@ using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(TextBox), typeof(TextBoxRenderer))]
 [assembly: ExportRenderer(typeof(TextArea), typeof(TextAreaRenderer))]
-[assembly: ExportRenderer(typeof(NumericTextBox), typeof(NumericBoxRenderer))]
-[assembly: ExportRenderer(typeof(XButton), typeof(ButtonRenderer))]
 [assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 [assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomSelectRenderer))]
 [assembly: ExportRenderer(typeof(CustomSearchBar), typeof(CustomSearchRenderer))]
@@ -33,22 +31,6 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-        }
-    }
-
-    class NumericBoxRenderer : EntryRenderer
-    {
-        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            base.OnElementPropertyChanged(sender, e);
-        }
-    }
-
-    public class XButtonRenderer : ButtonRenderer
-    {
-        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Button> e)
-        {
-            base.OnElementChanged(e);
         }
     }
 
