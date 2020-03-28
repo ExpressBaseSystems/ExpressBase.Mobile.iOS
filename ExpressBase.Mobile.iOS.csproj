@@ -154,12 +154,6 @@
     <BundleResource Include="Resources\SplashScreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\HeaderTriangle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\InvertedTriangle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\WebView\DataTable.html" />
   </ItemGroup>
   <ItemGroup>
@@ -167,5 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\connect.jpg" />
   </ItemGroup>
 </Project>
