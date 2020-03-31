@@ -27,27 +27,23 @@ namespace ExpressBase.Mobile.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            App _app = null;
+            App application = null;
 
             string sid = Store.GetValue(AppConst.SID);
 
             if (string.IsNullOrEmpty(sid))
-            {
-                _app = new App();
-            }
+                application = new App();
             else
             {
                 string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), string.Format("{0}.db3", sid));
 
                 if (!File.Exists(dbPath))
-                {
                     Mono.Data.Sqlite.SqliteConnection.CreateFile(dbPath);
-                }
 
-                _app = new App(dbPath);
+                application = new App(dbPath);
             }
 
-            LoadApplication(_app);
+            LoadApplication(application);
 
             return base.FinishedLaunching(app, options);
         }

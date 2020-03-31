@@ -160,9 +160,6 @@
     <BundleResource Include="Resources\doodlebg.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\connect.jpg" />
   </ItemGroup>
 </Project>
