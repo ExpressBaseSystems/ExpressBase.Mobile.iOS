@@ -157,9 +157,6 @@
     <BundleResource Include="Resources\WebView\DataTable.html" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\doodlebg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\connect.jpg" />
   </ItemGroup>
 </Project>
