@@ -74,4 +74,12 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
             base.OnElementChanged(e);
         }
     }
+
+    public class InputGroupRenderer : FrameRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Frame> e)
+        {
+            base.OnElementChanged(e);
+        }
+    }
 }
