@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ExpressBase.Mobile.Enums;
+using ExpressBase.Mobile.Helpers;
 using ExpressBase.Mobile.iOS.Helpers;
-using ExpressBase.Mobile.Models;
 using Foundation;
 using UIKit;
 
@@ -101,7 +97,7 @@ namespace ExpressBase.Mobile.iOS.Helpers
         {
             try
             {
-                string sid = Settings.SolutionId.ToUpper();
+                string sid = Utils.SolutionId.ToUpper();
 
                 string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ExpressBase/{sid}/logs.txt");
 

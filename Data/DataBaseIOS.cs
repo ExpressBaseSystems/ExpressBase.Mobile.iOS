@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using ExpressBase.Mobile.Data;
+using ExpressBase.Mobile.Helpers;
 using ExpressBase.Mobile.iOS.Data;
 using ExpressBase.Mobile.Models;
 using Foundation;
