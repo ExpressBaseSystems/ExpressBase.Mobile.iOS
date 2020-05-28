@@ -25,25 +25,10 @@ namespace ExpressBase.Mobile.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             global::Xamarin.Forms.Forms.Init();
 
-            App application = null;
-
-            string sid = Store.GetValue(AppConst.SID);
-
-            if (string.IsNullOrEmpty(sid))
-                application = new App();
-            else
-            {
-                string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), string.Format("{0}.db3", sid));
-
-                if (!File.Exists(dbPath))
-                    Mono.Data.Sqlite.SqliteConnection.CreateFile(dbPath);
-
-                application = new App(dbPath);
-            }
-
-            LoadApplication(application);
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

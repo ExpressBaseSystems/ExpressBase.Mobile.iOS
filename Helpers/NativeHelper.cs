@@ -97,7 +97,7 @@ namespace ExpressBase.Mobile.iOS.Helpers
         {
             try
             {
-                string sid = Utils.SolutionId.ToUpper();
+                string sid = App.Settings.Sid.ToUpper();
 
                 string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ExpressBase/{sid}/logs.txt");
 

@@ -16,6 +16,8 @@ namespace ExpressBase.Mobile.iOS.Data
 {
     public class DataBaseIOS : IDataBase
     {
+        public string DbPath { get; set; }
+
         public int CreateDB(string sid)
         {
             try
@@ -28,7 +30,7 @@ namespace ExpressBase.Mobile.iOS.Data
                 if (!File.Exists(dbPath))
                 {
                     Mono.Data.Sqlite.SqliteConnection.CreateFile(dbPath);
-                    App.DbPath = dbPath;
+                    this.DbPath = dbPath;
                     return 1;
                 }
             }
@@ -39,12 +41,31 @@ namespace ExpressBase.Mobile.iOS.Data
             return 0;
         }
 
+        public void SetDbPath(string sid)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(sid))
+                    return;
+
+                string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), string.Format("{0}.db3", sid));
+                if (!File.Exists(dbPath))
+                    Mono.Data.Sqlite.SqliteConnection.CreateFile(dbPath);
+
+                this.DbPath = dbPath;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex.Message);
+            }
+        }
+
         public EbDataTable DoQuery(string query, params DbParameter[] parameters)
         {
             EbDataTable dt = new EbDataTable();
             try
             {
-                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + this.DbPath))
                 {
                     con.Open();
                     using (SqliteCommand cmd = con.CreateCommand())
@@ -74,7 +95,7 @@ namespace ExpressBase.Mobile.iOS.Data
             EbDataSet ds = new EbDataSet();
             try
             {
-                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + this.DbPath))
                 {
                     con.Open();
                     using (SqliteCommand cmd = con.CreateCommand())
@@ -110,7 +131,7 @@ namespace ExpressBase.Mobile.iOS.Data
         {
             try
             {
-                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + this.DbPath))
                 {
                     con.Open();
                     using (SqliteCommand cmd = con.CreateCommand())
@@ -135,7 +156,7 @@ namespace ExpressBase.Mobile.iOS.Data
         {
             try
             {
-                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + this.DbPath))
                 {
                     con.Open();
                     string query = "INSERT INTO {0} ({1}) VALUES ({2});";
@@ -185,7 +206,7 @@ namespace ExpressBase.Mobile.iOS.Data
         {
             try
             {
-                using (SqliteConnection con = new SqliteConnection("Data Source=" + App.DbPath))
+                using (SqliteConnection con = new SqliteConnection("Data Source=" + this.DbPath))
                 {
                     con.Open();
                     using (SqliteCommand cmd = con.CreateCommand())
