@@ -56,7 +56,7 @@ namespace ExpressBase.Mobile.iOS.Data
             }
             catch (Exception ex)
             {
-                Log.Write(ex.Message);
+                EbLog.Write(ex.Message);
             }
         }
 
@@ -122,7 +122,7 @@ namespace ExpressBase.Mobile.iOS.Data
             }
             catch (Exception ex)
             {
-                Log.Write("DataBaseAndroid.DoQueries---" + ex.Message);
+                EbLog.Write("DataBaseAndroid.DoQueries---" + ex.Message);
             }
             return ds;
         }
