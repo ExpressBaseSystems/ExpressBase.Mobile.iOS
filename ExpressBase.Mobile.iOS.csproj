@@ -162,4 +162,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\connect.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mt.png" />
+  </ItemGroup>
 </Project>
