@@ -17,6 +17,8 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomSelectRenderer))]
 [assembly: ExportRenderer(typeof(CustomSearchBar), typeof(CustomSearchRenderer))]
 [assembly: ExportRenderer(typeof(ComboBoxLabel), typeof(ComboLabelRenderer))]
+[assembly: ExportRenderer(typeof(ComboBoxLabel), typeof(ComboLabelRenderer))]
+[assembly: ExportRenderer(typeof(HiddenEntry), typeof(HiddenEntryRenderer))]
 namespace ExpressBase.Mobile.iOS.CustomRenderer
 {
     class TextBoxRenderer : EntryRenderer
@@ -78,6 +80,14 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
     public class InputGroupRenderer : FrameRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Frame> e)
+        {
+            base.OnElementChanged(e);
+        }
+    }
+
+    public class HiddenEntryRenderer : EntryRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Entry> e)
         {
             base.OnElementChanged(e);
         }
