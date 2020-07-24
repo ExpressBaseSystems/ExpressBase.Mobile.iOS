@@ -61,6 +61,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomRenderer\CustomRenderer.cs" />
+    <Compile Include="CustomRenderer\ImageCircleRenderer.cs" />
     <Compile Include="Data\DataBaseIOS.cs" />
     <Compile Include="Helpers\NativeHelper.cs" />
     <Compile Include="Main.cs" />
@@ -140,7 +141,7 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.1080</Version>
+      <Version>4.7.0.1179</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile.Forms">
       <Version>2.4.1</Version>
