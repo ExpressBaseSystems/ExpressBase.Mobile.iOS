@@ -14,6 +14,7 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(NumericTextBox), typeof(NumericTextBoxRenderer))]
 [assembly: ExportRenderer(typeof(TextArea), typeof(TextAreaRenderer))]
 [assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
+[assembly: ExportRenderer(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer))]
 [assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomSelectRenderer))]
 [assembly: ExportRenderer(typeof(CustomSearchBar), typeof(CustomSearchRenderer))]
 [assembly: ExportRenderer(typeof(ComboBoxLabel), typeof(ComboLabelRenderer))]
@@ -48,6 +49,14 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
     public class CustomDatePickerRenderer : DatePickerRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.DatePicker> e)
+        {
+            base.OnElementChanged(e);
+        }
+    }
+
+    public class CustomTimePickerRenderer : TimePickerRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.TimePicker> e)
         {
             base.OnElementChanged(e);
         }
