@@ -64,6 +64,7 @@
     <Compile Include="CustomRenderer\ImageCircleRenderer.cs" />
     <Compile Include="Data\DataBaseIOS.cs" />
     <Compile Include="Helpers\NativeHelper.cs" />
+    <Compile Include="Helpers\ToastMessage.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

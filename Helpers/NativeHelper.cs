@@ -8,7 +8,6 @@ using Foundation;
 using UIKit;
 
 [assembly: Xamarin.Forms.Dependency(typeof(NativeHelper))]
-[assembly: Xamarin.Forms.Dependency(typeof(ToastMessage))]
 namespace ExpressBase.Mobile.iOS.Helpers
 {
     public class NativeHelper : INativeHelper
@@ -19,13 +18,13 @@ namespace ExpressBase.Mobile.iOS.Helpers
 
         public string NativeRoot => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-        public void CloseApp()
+        public void Close()
         {
             Process.GetCurrentProcess().CloseMainWindow();
             Process.GetCurrentProcess().Close();
         }
 
-        public bool DirectoryOrFileExist(string DirectoryPath, SysContentType Type)
+        public bool Exist(string DirectoryPath, SysContentType Type)
         {
             try
             {
@@ -46,7 +45,7 @@ namespace ExpressBase.Mobile.iOS.Helpers
             return false;
         }
 
-        public string CreateDirectoryOrFile(string DirectoryPath, SysContentType Type)
+        public string Create(string DirectoryPath, SysContentType Type)
         {
             try
             {
@@ -68,7 +67,7 @@ namespace ExpressBase.Mobile.iOS.Helpers
             return null;
         }
 
-        public byte[] GetPhoto(string url)
+        public byte[] GetFile(string url)
         {
             try
             {
@@ -88,7 +87,7 @@ namespace ExpressBase.Mobile.iOS.Helpers
             return Directory.GetFiles(path, Pattern);
         }
 
-        public string GetBaseURl()
+        public string GetAssetsURl()
         {
             return NSBundle.MainBundle.BundlePath;
         }
@@ -98,13 +97,14 @@ namespace ExpressBase.Mobile.iOS.Helpers
             try
             {
                 string sid = App.Settings.Sid.ToUpper();
+                string root = App.Settings.AppDirectory;
 
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ExpressBase/{sid}/logs.txt");
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"/{root}/{sid}/logs.txt");
 
                 // Create a string array with the additional lines of text
                 string[] lines = {
                     $"CREATED ON { DateTime.UtcNow }",
-                    $"{logType.ToString()} : {message}"
+                    $"{logType} : {message}"
                 };
 
                 File.AppendAllLines(path, lines);
@@ -112,41 +112,6 @@ namespace ExpressBase.Mobile.iOS.Helpers
             catch (Exception x)
             {
                 Console.WriteLine(x.Message);
-            }
-        }
-    }
-
-    public class ToastMessage : IToast
-    {
-        const double LONG_DELAY = 3.5;
-
-        NSTimer alertDelay;
-        UIAlertController alert;
-
-        public void Show(string message)
-        {
-            ShowAlert(message, LONG_DELAY);
-        }
-
-
-        void ShowAlert(string message, double seconds)
-        {
-            alertDelay = NSTimer.CreateScheduledTimer(seconds, (obj) =>
-            {
-                dismissMessage();
-            });
-            alert = UIAlertController.Create(null, message, UIAlertControllerStyle.Alert);
-            UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alert, true, null);
-        }
-        void dismissMessage()
-        {
-            if (alert != null)
-            {
-                alert.DismissViewController(true, null);
-            }
-            if (alertDelay != null)
-            {
-                alertDelay.Dispose();
             }
         }
     }
