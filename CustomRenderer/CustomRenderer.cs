@@ -16,7 +16,7 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 [assembly: ExportRenderer(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer))]
 [assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomSelectRenderer))]
-[assembly: ExportRenderer(typeof(CustomSearchBar), typeof(CustomSearchRenderer))]
+[assembly: ExportRenderer(typeof(ListViewSearchBar), typeof(CustomSearchRenderer))]
 [assembly: ExportRenderer(typeof(ComboBoxLabel), typeof(ComboLabelRenderer))]
 [assembly: ExportRenderer(typeof(ComboBoxLabel), typeof(ComboLabelRenderer))]
 [assembly: ExportRenderer(typeof(HiddenEntry), typeof(HiddenEntryRenderer))]
