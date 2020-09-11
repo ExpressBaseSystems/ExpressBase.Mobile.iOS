@@ -65,6 +65,7 @@
     <Compile Include="Data\DataBaseIOS.cs" />
     <Compile Include="Helpers\KeyBoardHelper.cs" />
     <Compile Include="Helpers\NativeHelper.cs" />
+    <Compile Include="Helpers\Script\CSharpScriptHelper.cs" />
     <Compile Include="Helpers\ToastMessage.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -125,6 +126,7 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Mono.CSharp" />
     <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
