@@ -173,4 +173,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\no_data.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back_btn.png" />
+  </ItemGroup>
 </Project>
