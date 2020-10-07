@@ -176,7 +176,5 @@
   <ItemGroup>
     <BundleResource Include="Resources\back_btn.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\Script\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
