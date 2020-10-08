@@ -62,6 +62,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomRenderer\CustomRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXDatePickerRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXNumericTextBoxRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXSelectRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXTextAreaRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXTextBoxRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXTimePickerRenderer.cs" />
     <Compile Include="CustomRenderer\ImageCircleRenderer.cs" />
     <Compile Include="Data\DataBaseIOS.cs" />
     <Compile Include="Helpers\KeyBoardHelper.cs" />

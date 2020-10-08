@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using ExpressBase.Mobile.CustomControls;
 using ExpressBase.Mobile.iOS.CustomRenderer;
-using Foundation;
-using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(ImageCircle), typeof(ImageCircleRenderer))]
+
 namespace ExpressBase.Mobile.iOS.CustomRenderer
 {
     public class ImageCircleRenderer : ImageRenderer
@@ -21,6 +17,7 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
             if (e.OldElement != null || Element == null) return;
             CreateCircle();
         }
+
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
@@ -29,6 +26,7 @@ namespace ExpressBase.Mobile.iOS.CustomRenderer
                 CreateCircle();
             }
         }
+
         private void CreateCircle()
         {
             try
