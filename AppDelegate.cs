@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using ExpressBase.Mobile.Constants;
-using ExpressBase.Mobile.Helpers;
-using ExpressBase.Mobile.Services;
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace ExpressBase.Mobile.iOS
@@ -27,6 +20,7 @@ namespace ExpressBase.Mobile.iOS
         {
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsMaps.Init();
 
             LoadApplication(new App());
 
