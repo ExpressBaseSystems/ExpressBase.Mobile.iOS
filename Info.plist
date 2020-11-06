@@ -42,5 +42,21 @@
     <string>Can we use your location when your application is being used?</string>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Can we use your location at all times?</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs access to the camera to take photos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs access to photos.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app needs access to microphone.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This app needs access to the photo gallery.</string>
+    <key>UIAppFonts</key>
+    <array>
+      <string>fontawesome-webfont.ttf</string>
+      <string>Roboto-Bold.ttf</string>
+      <string>Roboto-Light.ttf</string>
+      <string>Roboto-Medium.ttf</string>
+      <string>Roboto-Regular.ttf</string>
+    </array>
   </dict>
 </plist>

@@ -168,9 +168,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\SplashScreen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\WebView\DataTable.html" />
   </ItemGroup>
   <ItemGroup>
@@ -185,5 +182,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\back_btn.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_eb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_ks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_mo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user_avatar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\image_avatar.jpg" />
+  </ItemGroup>
 </Project>
