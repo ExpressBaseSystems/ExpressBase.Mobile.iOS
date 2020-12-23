@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="CustomRenderer\CustomRenderer.cs" />
     <Compile Include="CustomRenderer\EbXDatePickerRenderer.cs" />
+    <Compile Include="CustomRenderer\EbXFrameRederer.cs" />
     <Compile Include="CustomRenderer\EbXNumericTextBoxRenderer.cs" />
     <Compile Include="CustomRenderer\EbXSelectRenderer.cs" />
     <Compile Include="CustomRenderer\EbXTextAreaRenderer.cs" />
