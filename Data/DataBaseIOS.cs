@@ -5,10 +5,7 @@ using System.IO;
 using ExpressBase.Mobile.Data;
 using ExpressBase.Mobile.Helpers;
 using ExpressBase.Mobile.iOS.Data;
-using ExpressBase.Mobile.Models;
-using Foundation;
 using Mono.Data.Sqlite;
-using UIKit;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(DataBaseIOS))]
